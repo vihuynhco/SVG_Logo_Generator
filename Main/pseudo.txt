@@ -1,0 +1,67 @@
+Packages - what tools do we need for this?
+need two packages jest and inquirer
+hard code the shapes
+
+Files should be organized
+main (root)
+    library
+        circle.js
+        menu.js 
+        shape.js 
+        square.js 
+        svg.js 
+        triangle.js 
+    .gitignore
+    index.js 
+
+Entry way to application: index.js 
+Instantiate a new Menu Class object here and run the main fuction
+
+classes:
+1.  menu class - ask the questions for the prompt
+    1a. We need to have a main method and everything will go in here.
+    1b. collect user input with inquirer prompts
+        1ba. Text for the logo
+        1bb. Text color
+        1bc. Shape type
+        1bd. shape color 
+    1c which shape did the user select?
+        1ca. Instantiate a new shape object with the chosen shape
+        using the object, set the color.
+    1d. Instantiatea new SVG object with the text AND the shape selected.
+    1e. Write the SVG object to file called "logo.svg"
+
+2.  shape (color)
+    2a. circle (Classes, render()) 
+        need render() method to print out the string of code  that generates shape.
+        i.e <circle cx="25" cy="75" r="20" fill= "shapeColor"/>
+            https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes
+
+<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+<circle cx="150" cy="100" r="80" fill="green" />
+<text x="150" y="125" font-size="60" text-anchor="middle" fill="white">SVG</text>
+</svg> assets folder > circle.svg
+  
+    2b. Square (Classes, render())
+    2c. triangle (Classes, render())
+
+3.  SVG class (text, shape)
+how do we pass the color into our object?
+shape.setColor("blue");
+
+
+<svg version="1.1"
+     width="300" height="200"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <rect width="100%" height="100%" fill="red" />
+
+  <circle cx="150" cy="100" r="80" fill="green" />
+
+  <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">SVG</text>
+
+</svg>
+
+const shape = new Triangle();
+shape.setColor("blue");
+expect(shape.render()).toEqual('<polygon points="150, 18 244, 182 56, 182" fill="blue" />');
